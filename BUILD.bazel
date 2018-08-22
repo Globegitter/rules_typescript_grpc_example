@@ -1,0 +1,15 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+gazelle(
+    name = "gazelle",
+    prefix = "github.com/ecosia/hackdays-ecosia-account",
+)
+
+package(default_visibility = ["//visibility:public"])
+exports_files(["tsconfig.json"])
+
+# NOTE: this will move to node_modules/BUILD in a later release
+alias(
+    name = "node_modules",
+    actual = "@js_deps//:node_modules",
+)
